@@ -1,0 +1,5 @@
+let arr = ([Int])(1 ... 10)
+let sum = arr.reduce(0, { (p: Int, c: Int) -> Int in
+	return p + c
+})
+print(sum)
