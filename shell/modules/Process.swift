@@ -70,8 +70,9 @@ public class Process {
 		let name = String(splittedPath[splittedPath.endIndex - 1])
 		let parentPath = "/\(splittedPath[splittedPath.startIndex ..< splittedPath.endIndex - 1].joined(separator: "/"))"
 		if let directory = self._access(path: parentPath) {
-			if directory.children[name] != nil {
-				print("\(name) file exists.")
+			let exist: Accessable? = directory.children[name]
+			if exist is Directory {
+				print("\(name) directory exists.")
 			}
 			directory.children[name] = Directory(name: name, parent: directory)
 		} else {
