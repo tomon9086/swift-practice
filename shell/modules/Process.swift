@@ -66,6 +66,10 @@ public class Process {
 	}
 
 	func mkdir(path: String) {
+		if path.count == 0 {
+			print("usage: mkdir <directory name>")
+			return
+		}
 		let splittedPath = self._toAbsolute(path: path).split(separator: "/")
 		let name = String(splittedPath[splittedPath.endIndex - 1])
 		let parentPath = "/\(splittedPath[splittedPath.startIndex ..< splittedPath.endIndex - 1].joined(separator: "/"))"
